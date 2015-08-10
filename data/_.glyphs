@@ -1,0 +1,55 @@
+{
+DisplayStrings = (
+A
+);
+date = "2015-08-10 11:17:03 +0000";
+familyName = "Test Font";
+fontMaster = (
+{
+ascender = 800;
+capHeight = 700;
+descender = "-200";
+id = "FBF663DA-A55E-458A-A517-710B2413A5CD";
+xHeight = 500;
+}
+);
+glyphs = (
+{
+glyphname = A;
+lastChange = "2015-08-10 14:58:02 +0000";
+layers = (
+{
+layerId = "FBF663DA-A55E-458A-A517-710B2413A5CD";
+name = Regular;
+paths = (
+{
+closed = 1;
+nodes = (
+"288 739 OFFCURVE",
+"354 697 OFFCURVE",
+"450 623 CURVE SMOOTH",
+"546 549 OFFCURVE",
+"674 309 OFFCURVE",
+"556 189 CURVE SMOOTH",
+"438 69 OFFCURVE",
+"361 6 OFFCURVE",
+"241 78 CURVE SMOOTH",
+"121 150 OFFCURVE",
+"98 343 OFFCURVE",
+"108 448 CURVE SMOOTH",
+"118 553 OFFCURVE",
+"82 641 OFFCURVE",
+"187 691 CURVE SMOOTH"
+);
+}
+);
+width = 600;
+}
+);
+unicode = 0041;
+}
+);
+unitsPerEm = 1000;
+versionMajor = 1;
+versionMinor = 0;
+}
