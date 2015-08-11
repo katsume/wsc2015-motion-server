@@ -1,49 +1,22 @@
-var express= require('express');
-var Q= require('q');
+var _= require('underscore'),
+	express= require('express');
+
+var font= require('./data/font.json');
+
+var pickGlyphs= require('./pick-glyphs'),
+	pickMetadata= require('./pick-metadata.js'),
+	formatGlyph= require('./format-glyph.js'),
+	adjustGlyphs= require('./adjust-glyphs'),
+	calculateRange= require('./calculate-range');
 
 var app= express();
 
-var plist= require('plistjs');
-var fs= require('fs');
-var pickGlyphs= function(glyphs, sentence){
-	return sentence.split('').map(function(char){
-		glyphs.forEach(function(glyph){
-			console.log(glyph.glyphname);
-			if(glyph.glyphname===char){
-				return glyph;
-			}
-			return;
-		});
+app.use(function(req, res, next){
+	res.set({
+		'Access-Control-Allow-Origin': '*'
 	});
-};
-var loadFont= function(sentence){
-
-	var d= Q.defer();
-
-	var FILENAME= 'data/CosugiFont_22.glyphs';
-	FILENAME= 'data/_.glyphs';
-
-	fs.readFile(FILENAME, function(err, data){
-
-		if(err){
-			d.reject(err);
-			return;
-		}
-
-		var str= data.toString().replace(/\n|\t/g, '').replace(/\s\=\s/g, '=');
-		// var str= data.toString();
-
-		var util= require('util');
-		var font= plist.parse(str);
-		// font.glyphs= pickGlyphs(font.glyphs, sentence);
-
-		console.log(util.inspect(font, false, null));
-
-		d.resolve(util.inspect(font, false, null));
-	});
-
-	return d.promise;
-};
+	next();
+});
 
 app.get('/', function(req, res){
 
@@ -55,18 +28,21 @@ app.get('/', function(req, res){
 		return;
 	}
 
-	res.set({
-		'Access-Control-Allow-Origin': '*'
+	var glyphs= pickGlyphs(font.glyphs, sentence.split('')).map(formatGlyph),
+		metadata= pickMetadata(font);
+
+	adjustGlyphs(glyphs, metadata);
+	// adjustMetadata(metadata);
+
+	glyphs.forEach(function(glyph){
+		var range= calculateRange(glyph);
+		glyph.origin= range.origin;
+		glyph.size= range.size;
 	});
 
-	Q
-		.when(sentence)
-		.then(loadFont)
-		.then(function(response){
-			res.send(response);
-		}, function(err){
-			res.send(err.toString());
-		});
+	res.send(_.extend({
+		glyphs: glyphs
+	}, metadata));
 });
 
 app.listen(8000);

@@ -1,7 +1,4 @@
 {
-DisplayStrings = (
-A
-);
 date = "2015-08-10 11:17:03 +0000";
 familyName = "Test Font";
 fontMaster = (
@@ -16,7 +13,7 @@ xHeight = 500;
 glyphs = (
 {
 glyphname = A;
-lastChange = "2015-08-10 14:58:02 +0000";
+lastChange = "2015-08-11 03:34:36 +0000";
 layers = (
 {
 layerId = "FBF663DA-A55E-458A-A517-710B2413A5CD";
@@ -25,21 +22,31 @@ paths = (
 {
 closed = 1;
 nodes = (
-"288 739 OFFCURVE",
-"354 697 OFFCURVE",
-"450 623 CURVE SMOOTH",
-"546 549 OFFCURVE",
-"674 309 OFFCURVE",
-"556 189 CURVE SMOOTH",
-"438 69 OFFCURVE",
-"361 6 OFFCURVE",
-"241 78 CURVE SMOOTH",
-"121 150 OFFCURVE",
-"98 343 OFFCURVE",
-"108 448 CURVE SMOOTH",
-"118 553 OFFCURVE",
-"82 641 OFFCURVE",
-"187 691 CURVE SMOOTH"
+"118 281 LINE SMOOTH",
+"78 237 OFFCURVE",
+"-18 79 OFFCURVE",
+"41 33 CURVE",
+"100 -13 OFFCURVE",
+"180 163 OFFCURVE",
+"296 193 CURVE SMOOTH",
+"402 215 OFFCURVE",
+"499 18 OFFCURVE",
+"538 96 CURVE",
+"577 174 OFFCURVE",
+"521 296 OFFCURVE",
+"433 326 CURVE"
+);
+},
+{
+closed = 1;
+nodes = (
+"205 751 OFFCURVE",
+"126 365 OFFCURVE",
+"142 336 CURVE",
+"421 371 LINE SMOOTH",
+"463 405 OFFCURVE",
+"337 747 OFFCURVE",
+"271 749 CURVE SMOOTH"
 );
 }
 );
@@ -47,6 +54,44 @@ width = 600;
 }
 );
 unicode = 0041;
+},
+{
+glyphname = B;
+lastChange = "2015-08-11 03:35:32 +0000";
+layers = (
+{
+layerId = "FBF663DA-A55E-458A-A517-710B2413A5CD";
+name = Regular;
+paths = (
+{
+closed = 1;
+nodes = (
+"185 716 OFFCURVE",
+"493 711 OFFCURVE",
+"509 600 CURVE SMOOTH",
+"525 489 OFFCURVE",
+"206 371 OFFCURVE",
+"92 366 CURVE SMOOTH",
+"88 695 LINE"
+);
+},
+{
+closed = 0;
+nodes = (
+"84 297 LINE",
+"233 318 OFFCURVE",
+"479 311 OFFCURVE",
+"498 202 CURVE SMOOTH",
+"517 93 OFFCURVE",
+"218 44 OFFCURVE",
+"90 26 CURVE SMOOTH"
+);
+}
+);
+width = 600;
+}
+);
+unicode = 0042;
 }
 );
 unitsPerEm = 1000;

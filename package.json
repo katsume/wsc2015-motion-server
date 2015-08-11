@@ -4,13 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "plutil -convert json ./data/_.glyphs -o ./data/font.json; node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
-    "plistjs": "0.0.4",
-    "q": "^1.4.1"
+    "underscore": "^1.8.3"
   }
 }
