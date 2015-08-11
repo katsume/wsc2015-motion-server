@@ -35,14 +35,17 @@ app.get('/', function(req, res){
 	// adjustMetadata(metadata);
 
 	glyphs.forEach(function(glyph){
-		var range= calculateRange(glyph);
-		glyph.origin= range.origin;
-		glyph.size= range.size;
+		// var range= calculateRange(glyph);
+		// glyph.origin= range.origin;
+		// glyph.size= range.size;
+		glyph.origin= [0, 0, 1];
+		glyph.size= [glyph.width, metadata.descender, 1];
 	});
 
-	res.send(_.extend({
+	res.send({
+		metadata: metadata,
 		glyphs: glyphs
-	}, metadata));
+	});
 });
 
 app.listen(8000);

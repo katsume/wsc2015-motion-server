@@ -1,4 +1,7 @@
 {
+DisplayStrings = (
+C
+);
 date = "2015-08-10 11:17:03 +0000";
 familyName = "Test Font";
 fontMaster = (
@@ -92,6 +95,37 @@ width = 600;
 }
 );
 unicode = 0042;
+},
+{
+glyphname = C;
+lastChange = "2015-08-11 09:50:44 +0000";
+layers = (
+{
+layerId = "FBF663DA-A55E-458A-A517-710B2413A5CD";
+name = Regular;
+paths = (
+{
+closed = 1;
+nodes = (
+"51 800 OFFCURVE",
+"561 797 OFFCURVE",
+"576 786 CURVE SMOOTH",
+"591 775 OFFCURVE",
+"605 -138 OFFCURVE",
+"573 -169 CURVE SMOOTH",
+"541 -200 OFFCURVE",
+"49 -197 OFFCURVE",
+"29 -173 CURVE",
+"9 -149 OFFCURVE",
+"3 756 OFFCURVE",
+"29 778 CURVE"
+);
+}
+);
+width = 600;
+}
+);
+unicode = 0043;
 }
 );
 unitsPerEm = 1000;
