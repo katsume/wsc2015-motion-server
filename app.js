@@ -1,11 +1,11 @@
-var _= require('underscore'),
-	express= require('express');
+var express= require('express');
 
 var font= require('./data/font.json');
 
-var pickGlyphs= require('./pick-glyphs'),
-	pickMetadata= require('./pick-metadata.js'),
+var pickMetadata= require('./pick-metadata.js'),
+	pickGlyphs= require('./pick-glyphs'),
 	formatGlyph= require('./format-glyph.js'),
+	adjustMetadata= require('./adjust-metadata'),
 	adjustGlyphs= require('./adjust-glyphs'),
 	calculateRange= require('./calculate-range');
 
@@ -28,22 +28,16 @@ app.get('/', function(req, res){
 		return;
 	}
 
-	var glyphs= pickGlyphs(font.glyphs, sentence.split('')).map(formatGlyph),
-		metadata= pickMetadata(font);
+	var metadata= pickMetadata(font),
+		glyphs= pickGlyphs(font.glyphs, sentence.split('')).map(function(glyph){
+			return formatGlyph(glyph, metadata);
+		});
 
+	adjustMetadata(metadata);
 	adjustGlyphs(glyphs, metadata);
-	// adjustMetadata(metadata);
-
-	glyphs.forEach(function(glyph){
-		// var range= calculateRange(glyph);
-		// glyph.origin= range.origin;
-		// glyph.size= range.size;
-		glyph.origin= [0, 0, 1];
-		glyph.size= [glyph.width, metadata.descender, 1];
-	});
 
 	res.send({
-		metadata: metadata,
+		// metadata: metadata,
 		glyphs: glyphs
 	});
 });

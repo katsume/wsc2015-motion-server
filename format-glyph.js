@@ -1,15 +1,24 @@
 var formatPath= require('./format-path.js');
 
-module.exports= function(glyph){
+module.exports= function(glyph, metadata){
 
 	var glyphname= glyph.glyphname,
 		layer= glyph.layers[0],
-		formattedPaths= layer.paths.map(formatPath),
 		path= [];
+
+	path= path.concat.apply(path, layer.paths.map(formatPath));
 
 	return {
 		name: glyphname,
-		path: path.concat.apply(path, formattedPaths),
-		width: layer.width
+		path: path,
+		'body-size': [
+			Number(layer.width),
+			metadata.height,
+			1
+		],
+		'glyph-bounds': {
+			origin: [0, 0, 1],
+			size: [0, 0, 1]
+		}
 	};
 };

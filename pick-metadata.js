@@ -3,11 +3,11 @@ module.exports= function(font){
 	var fontMaster= font.fontMaster[0],
 		unitsPerEm= Number(font.unitsPerEm);
 
-	var descender= Number(fontMaster.descender)/unitsPerEm,
+	var descender= Number(fontMaster.descender),
 		baseLine= 0,
-		xHeight= Number(fontMaster.xHeight)/unitsPerEm,
-		capHeight= Number(fontMaster.capHeight)/unitsPerEm,
-		ascender= Number(fontMaster.ascender)/unitsPerEm;
+		xHeight= Number(fontMaster.xHeight),
+		capHeight= Number(fontMaster.capHeight),
+		ascender= Number(fontMaster.ascender);
 
 	descender= -descender+ascender;
 	baseLine= -baseLine+ascender;
@@ -17,10 +17,11 @@ module.exports= function(font){
 
 	return {
 		unitsPerEm: unitsPerEm,
-		descender: descender,
-		baseLine: baseLine,
-		xHeight: xHeight,
-		capHeight: capHeight,
-		ascender: ascender
+		height: descender,
+		// descender: descender,
+		baseLine: baseLine
+		// xHeight: xHeight,
+		// capHeight: capHeight,
+		// ascender: ascender
 	};
 };

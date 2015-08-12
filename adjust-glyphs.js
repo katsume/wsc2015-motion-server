@@ -16,6 +16,8 @@ module.exports= function(glyphs, metadata){
 				return val;
 			});
 		});
-		glyph.width/= unitsPerEm;
+
+		glyph['body-size'][0]/= unitsPerEm;
+		glyph['body-size'][1]/= unitsPerEm;
 	});
 };
