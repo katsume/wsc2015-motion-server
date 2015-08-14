@@ -30,9 +30,14 @@ var getBounds= function(path){
 		}
 	});
 
+	var w= maxX-minX,
+		h= maxY-minY;
+
+	var margin= 0.0;
+
 	return {
-		origin: [minX, minY, 1],
-		size: [maxX-minX, maxY-minY, 1]
+		origin: [minX-w*margin, minY-h*margin, 1],
+		size: [w*(1.0+margin*2), h*(1.0+margin*2), 1]
 	};
 };
 
