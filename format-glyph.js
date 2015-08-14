@@ -33,7 +33,7 @@ var getBounds= function(path){
 	var w= maxX-minX,
 		h= maxY-minY;
 
-	var margin= 0.0;
+	var margin= 0.1;
 
 	return {
 		origin: [minX-w*margin, minY-h*margin, 1],
