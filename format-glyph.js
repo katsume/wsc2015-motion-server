@@ -49,7 +49,9 @@ module.exports= function(glyph, metadata){
 		bounds= {},
 		glyphBounds= {};
 
-	path= path.concat.apply(path, layer.paths.map(formatPath));
+	if(layer.paths){
+		path= path.concat.apply(path, layer.paths.map(formatPath));
+	}
 
 	bounds= {
 		origin: [0, 0, 1],
