@@ -9,9 +9,6 @@ module.exports= _.extend(Math, {
 		}
 		return val;
 	},
-	lerp: function(start, stop, value){
-		return start+value*(stop-start);
-	},
 	map: function(value, inputMin, inputMax, outputMin, outputMax){
 		return (value-inputMin) / (inputMax-inputMin) * (outputMax-outputMin) + outputMin;
 	}
