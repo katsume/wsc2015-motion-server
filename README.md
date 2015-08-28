@@ -1,4 +1,4 @@
-# cosugi-font-test6-server
+# wsc-motion-server
 
 - ***
 

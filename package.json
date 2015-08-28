@@ -1,15 +1,15 @@
 {
-  "name": "cosugi-font-test6-server",
+  "name": "wsc-motion-server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "plutil -convert json ./data/_.glyphs -o ./data/font.json; node app.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
-    "underscore": "^1.8.3"
+    "socket.io": "^1.3.6"
   }
 }
